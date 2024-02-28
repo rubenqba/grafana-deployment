@@ -23,7 +23,7 @@ networks:
 services: 
   grafana:
     container_name: grafana
-    image: grafana/grafana:alpine
+    image: grafana/grafana-oss
     environment:
       GF_INSTALL_PLUGINS: ${GRAFANA_PLUGINS}
       GF_AUTH_DISABLE_LOGIN_FORM: "true"
