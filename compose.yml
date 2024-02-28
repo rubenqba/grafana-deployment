@@ -40,6 +40,9 @@ services:
       GF_AUTH_GENERIC_OAUTH_TOKEN_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/token
       GF_AUTH_GENERIC_OAUTH_API_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/userinfo
       GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: contains(roles[*], 'grafana_admins') && 'Admin' || contains(roles[*], 'grafana_editors') && 'Editor' || 'Viewer'
+    secrets:
+      - grafana-client-id
+      - grafana-client-secret
     volumes:
       - grafana-data:/var/lib/grafana
     networks:
