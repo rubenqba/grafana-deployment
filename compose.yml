@@ -26,6 +26,7 @@ services:
     image: grafana/grafana-oss
     environment:
       GF_INSTALL_PLUGINS: ${GRAFANA_PLUGINS}
+      GF_SERVER:ROOT_URL: ${GRAFANA_DOMAIN}
       GF_AUTH_DISABLE_LOGIN_FORM: "true"
       GF_AUTH_GENERIC_OAUTH_ENABLED: "true"
       GF_AUTH_GENERIC_OAUTH_NAME: DARDEUS Auth
@@ -39,6 +40,7 @@ services:
       GF_AUTH_GENERIC_OAUTH_AUTH_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/auth
       GF_AUTH_GENERIC_OAUTH_TOKEN_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/token
       GF_AUTH_GENERIC_OAUTH_API_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/userinfo
+      GF_AUTH_GENERIC_OAUTH_SIGNOUT_REDIRECT_URL: https://auth.gyfted.io/realms/gyfted-admin/protocol/openid-connect/logout?post_logout_redirect_uri=https%3A%2F%2F${GRAFANA_DOMAIN}%2Flogin
       GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH: contains(groups[*], 'grafana_admins') && 'Admin' || contains(groups[*], 'grafana_editors') && 'Editor' || 'Viewer'
     secrets:
       - grafana-client-id
