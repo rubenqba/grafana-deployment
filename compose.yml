@@ -32,7 +32,7 @@ services:
       GF_AUTH_GENERIC_OAUTH_NAME: DARDEUS Auth
       GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP: "false"
       GF_AUTH_GENERIC_OAUTH_CLIENT_ID__FILE: /run/secrets/grafana-client-id
-      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET: /run/secrets/grafana-client-secret
+      GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET__FILE: /run/secrets/grafana-client-secret
       GF_AUTH_GENERIC_OAUTH_SCOPES: openid email profile offline_access roles
       GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_PATH: email
       GF_AUTH_GENERIC_OAUTH_LOGIN_ATTRIBUTE_PATH: username
